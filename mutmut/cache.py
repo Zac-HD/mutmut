@@ -179,9 +179,9 @@ def print_result_cache(show_diffs=False, dict_synonyms=None, print_only_filename
                 else:
                     print(ranges([x.id for x in mutants]))
 
-    print_stuff('Timed out ⏰', select(x for x in Mutant if x.status == BAD_TIMEOUT))
-    print_stuff('Suspicious 🤔', select(x for x in Mutant if x.status == OK_SUSPICIOUS))
-    print_stuff('Survived 🙁', select(x for x in Mutant if x.status == BAD_SURVIVED))
+    print_stuff('Timed out', select(x for x in Mutant if x.status == BAD_TIMEOUT))
+    print_stuff('Suspicious', select(x for x in Mutant if x.status == OK_SUSPICIOUS))
+    print_stuff('Survived', select(x for x in Mutant if x.status == BAD_SURVIVED))
     print_stuff('Untested/skipped', select(x for x in Mutant if x.status == UNTESTED))
 
 

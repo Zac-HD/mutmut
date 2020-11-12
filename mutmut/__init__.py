@@ -920,7 +920,9 @@ class Progress(object):
         self.suspicious_mutants = 0
 
     def print(self):
-        print_status('{}/{}  🎉 {}  ⏰ {}  🤔 {}  🙁 {}  🔇 {}'.format(self.progress, self.total, self.killed_mutants, self.surviving_mutants_timeout, self.suspicious_mutants, self.surviving_mutants, self.skipped))
+        print_status('{}/{}  killed {},  timeout {}, survived {},  suspicious {},  skipped {}'.format(
+            self.progress, self.total, self.killed_mutants, self.surviving_mutants_timeout, self.suspicious_mutants, self.surviving_mutants, self.skipped
+        ))
 
     def register(self, status):
         if status == BAD_SURVIVED:
@@ -1272,7 +1274,7 @@ def compute_exit_code(progress, exception=None):
 
 
 hammett_prefix = 'python -m hammett '
-spinner = itertools.cycle('⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏')
+spinner = itertools.cycle('-+|+')
 print_status = status_printer()
 
 # List of active multiprocessing queues
